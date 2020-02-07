@@ -12,13 +12,13 @@
 */
 use App\TheLoai;
 use App\LoaiTin;
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('thu',function (){
-   return view('admin.theloai.danhsach');
-});
-Route::group(['prefix'=>'admin'],function (){
+
+
+Route::get('admin/','UserController@getdangnhapAdmin');
+Route::get('admin/dangnhap','UserController@getdangnhapAdmin');
+Route::post('admin/dangnhap','UserController@postdangnhapAdmin');
+Route::get('admin/logout','UserController@getDangXuatAdmin');
+Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function (){
 
     Route::group(['prefix'=>'theloai'],function (){
 
@@ -52,7 +52,49 @@ Route::group(['prefix'=>'admin'],function (){
 
         //admin/tintuc/sua
         Route::get('danhsach','TinTucController@getDanhSach');
-        Route::get('sua','TinTucController@getSua');
+
+        Route::get('sua/{id}','TinTucController@getSua');
+        Route::post('sua/{id}','TinTucController@postSua');
+
         Route::get('them','TinTucController@getThem');
+        Route::post('them','TinTucController@postThem');
+
+        Route::get('xoa/{id}','TinTucController@getXoa');
+
+    });
+    Route::group(['prefix'=>'ajax'],function (){
+        Route::get('loaitin/{idTheLoai}','AjaxController@getLoaiTin');
+    });
+
+    Route::group(['prefix'=>'comment'],function (){
+        Route::get('xoa/{idTinTuc}/{id}','CommentController@getXoa');
+    });
+    Route::group(['prefix'=>'slide'],function (){
+
+        //admin/slide/sua
+        Route::get('danhsach','SlideController@getDanhSach');
+
+        Route::get('sua/{id}','SlideController@getSua');
+        Route::post('sua/{id}','SlideController@postSua');
+
+        Route::get('them','SlideController@getThem');
+        Route::post('them','SlideController@postThem');
+
+        Route::get('xoa/{id}','SlideController@getXoa');
+
+    });
+    Route::group(['prefix'=>'user'],function (){
+
+        //admin/slide/sua
+        Route::get('danhsach','UserController@getDanhSach');
+
+        Route::get('sua/{id}','UserController@getSua');
+        Route::post('sua/{id}','UserController@postSua');
+
+        Route::get('them','UserController@getThem');
+        Route::post('them','UserController@postThem');
+
+        Route::get('xoa/{id}','UserController@getXoa');
+
     });
 });

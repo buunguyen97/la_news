@@ -10,27 +10,32 @@
     </div>
     <!-- /.navbar-header -->
 
-    <ul class="nav navbar-top-links navbar-right">
+    <div class="nav navbar-top-links navbar-right">
         <!-- /.dropdown -->
-        <li class="dropdown">
+
+        <div class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
+
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                </li>
-                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                </li>
-                <li class="divider"></li>
-                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                </li>
+                @if(isset($current_user))
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i>{{$current_user->name}}</a>
+                    </li>
+                    <li><a href="admin/user/sua/{{$current_user->id}}"><i class="fa fa-gear fa-fw"></i> Sửa thông tin</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                @endif
             </ul>
             <!-- /.dropdown-user -->
-        </li>
+        </div>
         <!-- /.dropdown -->
-    </ul>
+    </div>
+
     <!-- /.navbar-top-links -->
 
-    @include('admin.layout.menu')
-    <!-- /.navbar-static-side -->
+@include('admin.layout.menu')
+<!-- /.navbar-static-side -->
 </nav>

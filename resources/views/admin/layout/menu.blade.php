@@ -58,7 +58,7 @@
                         <a href="admin/user/danhsach">List User</a>
                     </li>
                     <li>
-                        <a href="admin/user/danhsach">Add User</a>
+                        <a href="admin/user/them">Add User</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -67,10 +67,10 @@
                 <a href="admin/slide/danhsach"><i class="fa fa-users fa-fw"></i> Slide<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/slide/danhsach">List User</a>
+                        <a href="admin/slide/danhsach">List slide</a>
                     </li>
                     <li>
-                        <a href="admin/slide/danhsach">Add User</a>
+                        <a href="admin/slide/them">Add slide</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

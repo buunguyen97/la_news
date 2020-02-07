@@ -4,13 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TheLoai;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class TheLoaiController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//
+//    }
+
     //
     public function getDanhSach(){
-
+//        echo "<pre>"; print_r(Auth::user()); exit;
         $theloai = TheLoai::all();
+
         return view('admin.theloai.danhsach',['theloai'=>$theloai]);
     }
     public function getThem(){
