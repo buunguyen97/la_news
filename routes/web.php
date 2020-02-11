@@ -98,3 +98,14 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function (){
 
     });
 });
+
+
+Route::get('trangchu','PageController@trangchu')->middleware('Login');
+Route::get('lienhe','PageController@lienhe')->middleware('Login');
+Route::get('loaitin/{id}/{TenKhongDau}.html','PageController@loaitin')->middleware('Login');
+Route::get('tintuc/{id}/{TieuDeKhongDau}.html','PageController@tintuc')->middleware('Login');
+Route::get('dangnhap','PageController@get');
+Route::get('dangnhap','PageController@getDangNhap');
+Route::post('dangnhap','PageController@postDangNhap');
+Route::get('dangxuat','PageController@getDangXuat');
+Route::get('','PageController@trangchu')->middleware('Login');

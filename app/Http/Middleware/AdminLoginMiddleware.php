@@ -24,7 +24,7 @@ class AdminLoginMiddleware
                 return $next($request);
             }
             else{
-                return redirect('admin/dangnhap');
+                return redirect('admin/dangnhap')->with('thongbao','Đăng nhập không thành công');
             }
 
         }
