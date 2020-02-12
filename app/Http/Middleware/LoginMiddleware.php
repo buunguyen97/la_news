@@ -20,7 +20,9 @@ class LoginMiddleware
         if (Auth::check()) {
             View::share('nguoidung', Auth::user());
             return $next($request);
-
+        }
+        else{
+            return $next($request);
         }
     }
 }

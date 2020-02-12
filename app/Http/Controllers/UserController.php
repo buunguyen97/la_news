@@ -20,13 +20,13 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required|min:6',
+            'password' => 'required|min:3',
         ],
             [
                 'name.required' => 'Bạn chưa nhập tên',
                 'email.required' => 'Bạn chưa Nhập email',
                 'password.required' => 'Bạn chưa Nhập password',
-                'password.min' => 'Password nhiều hơn 6 kí tự',
+                'password.min' => 'Password nhiều hơn 3 kí tự',
 
             ]);
 
@@ -50,13 +50,13 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required|min:6',
+            'password' => 'required|min:3',
         ],
             [
                 'name.required' => 'Bạn chưa nhập tên',
                 'email.required' => 'Bạn chưa Nhập email',
                 'password.required' => 'Bạn chưa Nhập password',
-                'password.min' => 'Password nhiều hơn 6 kí tự',
+                'password.min' => 'Password nhiều hơn 3 kí tự',
 
             ]);
         $user->name =$request->name;
@@ -79,11 +79,11 @@ class UserController extends Controller
     public function postdangnhapAdmin(Request $request){
         $this->validate($request,[
             'email' => 'required',
-            'password' => 'required|min:6|max:32'
+            'password' => 'required|min:3|max:32'
         ],[
             'email.required' => 'Bạn chưa nhập email',
             'password.required' => 'Bạn chưa nhập password',
-            'password.min' => 'Mật khẩu lớn hơn 6 kí tự',
+            'password.min' => 'Mật khẩu lớn hơn 3 kí tự',
             'password.max' => 'Mật khẩu it hơn 32 kí tự',
         ]);
 

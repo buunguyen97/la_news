@@ -18,19 +18,20 @@
                     <a href="#">Giới thiệu</a>
                 </li>
                 <li>
-                    <a href="#">Liên hệ</a>
+                    <a href="lienhe">Liên hệ</a>
                 </li>
             </ul>
 
-            <form class="navbar-form navbar-left" role="search">
+            <form class="navbar-form navbar-left" role="search" action="timkiem" method="post">
+                <input type="hidden" value="{{csrf_token()}}" name="_token">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" name="tukhoa" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Tìm</button>
             </form>
 
             <ul class="nav navbar-nav pull-right">
-                @if(!isset($nguoidung))
+                @if(empty($nguoidung))
                     <li>
                         <a href="dangky">Đăng ký</a>
                     </li>
@@ -39,7 +40,7 @@
                     </li>
                 @else
                     <li>
-                        <a>
+                        <a href="nguoidung">
                             <span class="glyphicon glyphicon-user"></span>
                            {{$nguoidung->name}}
                         </a>

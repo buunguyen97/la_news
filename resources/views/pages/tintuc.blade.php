@@ -31,16 +31,23 @@
                 <!-- Blog Comments -->
 
                 <!-- Comments Form -->
-                <div class="well">
-                    <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Gửi</button>
-                    </form>
-                </div>
-
+                @if(session('thongbao'))
+                    <div class="alert alert-success">
+                      {{session('thongbao')}}
+                    </div>
+                @endif
+                @if(isset($nguoidung))
+                    <div class="well">
+                        <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
+                        <form role="form" action="comment/{{$tintuc->id}}" method="post">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <div class="form-group">
+                                <textarea class="form-control" name="NoiDung" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Gửi</button>
+                        </form>
+                    </div>
+                @endif
                 <hr>
 
                 <!-- Posted Comments -->
@@ -81,7 +88,8 @@
                                 <div class="col-md-7">
                                     <a href="tintuc/{{$tlq->id}}/{{$tlq->TieuDeKhongDau}}.html"><b>{!! $tlq->TieuDe !!}</b></a>
                                 </div>
-                                <a class="btn btn-primary" href="tintuc/{{$tlq->id}}/{{$tlq->TieuDeKhongDau}}.html">Xem thêm<span
+                                <a class="btn btn-primary" href="tintuc/{{$tlq->id}}/{{$tlq->TieuDeKhongDau}}.html">Xem
+                                    thêm<span
                                         class="glyphicon glyphicon-chevron-right"></span></a>
                                 <div class="break"></div>
                             </div>
@@ -107,7 +115,8 @@
                                 <div class="col-md-7">
                                     <a href="tintuc/{{$tnb->id}}/{{$tnb->TieuDeKhongDau}}.html"><b>{!! $tnb->TieuDe !!}</b></a>
                                 </div>
-                                <a class="btn btn-primary" href="tintuc/{{$tnb->id}}/{{$tnb->TieuDeKhongDau}}.html">Xem thêm<span
+                                <a class="btn btn-primary" href="tintuc/{{$tnb->id}}/{{$tnb->TieuDeKhongDau}}.html">Xem
+                                    thêm<span
                                         class="glyphicon glyphicon-chevron-right"></span></a>
                                 <div class="break"></div>
                             </div>

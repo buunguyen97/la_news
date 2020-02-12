@@ -109,3 +109,14 @@ Route::get('dangnhap','PageController@getDangNhap');
 Route::post('dangnhap','PageController@postDangNhap');
 Route::get('dangxuat','PageController@getDangXuat');
 Route::get('','PageController@trangchu')->middleware('Login');
+
+
+Route::post('comment/{id}','CommentController@postComment')->middleware('Login');
+
+Route::get('nguoidung','PageController@getNguoiDung')->middleware('Login');
+Route::post('nguoidung','PageController@postNguoiDung');
+
+Route::get('dangky','PageController@getDangKy');
+Route::post('dangky','PageController@postDangKy');
+
+Route::post('timkiem','PageController@timkiem');
