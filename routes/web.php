@@ -113,7 +113,7 @@ Route::get('','PageController@trangchu')->middleware('Login');
 
 Route::post('comment/{id}','CommentController@postComment')->middleware('Login');
 
-Route::get('nguoidung','PageController@getNguoiDung')->middleware('Login');
+Route::get('nguoidung','PageController@getNguoiDung')->middleware('Login','checkduongdan');
 Route::post('nguoidung','PageController@postNguoiDung');
 
 Route::get('dangky','PageController@getDangKy');

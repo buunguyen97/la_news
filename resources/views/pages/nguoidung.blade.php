@@ -3,6 +3,7 @@
     <div class="container">
 
         <!-- slider -->
+
         <div class="row carousel-holder">
             <div class="col-md-2">
             </div>
